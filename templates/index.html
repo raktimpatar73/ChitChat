@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<HTML>
+    <HEAD>
+        <TITLE>ChitChat</TITLE>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+            <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/main.css') }}">
+            <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
+          
+
+        </HEAD>
+    <BODY>
+        <nav class="navbar navbar-expand-md bg-dark navbar-light ">
+            <a class="navbar-brand" href="#">
+                <img src="/static/img/chitchat.png" style="width:140px;height:75px;" alt='Logo'>
+            </a>
+                <h1 style="font-family: 'Kaushan Script', cursive; color:#39e600" >Chat Freely Chat Securely </h1>
+    </nav>
+        <div style="margin-top:50px; margin-left:20px;" class="row">
+            <div class="col-md-4 col-sm-6 col-lg-4">
+                <form action='/' method='post'>
+                    <div class='form-group'>
+                        <label for='usr' style="color:#001a1a;"><strong>Name:</strong></label>
+                        <i class="fa fa-user icon"></i>
+                        <input class="form-control form-control-sm"  name="name">
+                    </div>
+                    <div class='form-group'>
+                        <label for='usr' style="color:#001a1a;" ><strong>Post Content:</strong></label>
+                        <i class="fa fa-comment-dots icon"></i><input class="form-control form-control-lg" name='post'>
+                    </div>
+                    <button type='submit' class='btn btn-success' name="submit" value="postit">SUBMIT</button>
+                    <button type='submit' class='btn btn-danger' name="submit" value="clear">CLEAR</button>
+                </form>
+            </div>
+            <div class="col-md-7 col-sm-5 col-lg-7 card" style="width:500px;background-color:#00e6e6;">
+                <div class="scroll-box" id="scroll">
+                {% for post in posts %}
+                <div class="container" style="color:#003333;margin-top:10px;">
+                    <img src="/static/img/usericon2.png" alt="avatar">
+                    <p>{{post[1]+' : '+post[2]}}</p>
+                    <span class="time-right">{{post[3]}}</span>
+                </div>
+                {% endfor %}
+                </div>   
+            </div>
+        </div>
+        <footer style="background-color: #003333; height: 30px; position: fixed;bottom:0; width: 100%; ">
+                <div class="footer-copyright text-center py-3" style="color:white;">© 2018 Copyright:
+                        <a href="https://www.linkedin.com/in/raktim-patar-774ab8126/"> Raktim Patar</a>
+                </div>
+        </footer>
+    </BODY>
+</HTML>
